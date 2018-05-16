@@ -1,0 +1,14 @@
+<div class="main">
+	<div class="container">
+	<h2>Our Toys!</h2>
+		<% @toys.each do |x| %>
+			<h3>Pene para todos!</h3>
+			<div class="Toy">
+				<%= image_tag x.image%>
+				<h3> <%=x.name %> </h3>
+				<p> <%=x.numberPieces%> </p>
+				<p> <%=x.price%> </p>
+			</div>
+		<% end %>
+	</div>
+</div>

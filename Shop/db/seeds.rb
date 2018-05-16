@@ -7,8 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 piece1 = Piece.create(description: "Connecting Bush", price: "0,06€", image: "https://sh-s7-live-s.legocdn.com/is/image/LEGOPCS/6013938?$PABthumb$")
+
 piece2 = Piece.create(description: "Bush", price: "0,06€", image: "https://sh-s7-live-s.legocdn.com/is/image/LEGOPCS/4211573?$PABthumb$")
 
 toy1 = Toy.create(name: "Taj Mahal", numberPieces: "5923", bio: "blah, blah", gender: "For pure man!", price: "329,99€", image: "https://sh-s7-live-s.legocdn.com/is/image//LEGO/10256_alt1?$main$")
 
 toy1.pieces << [piece1,piece2]
+
+pack1 = Pack.create(price: "666", image: "https://vignette.wikia.nocookie.net/inciclopedia/images/d/d5/Pedobear.png/revision/latest/scale-to-width-down/296?cb=20081105173006")
+
+pack1.toys << [toy1]

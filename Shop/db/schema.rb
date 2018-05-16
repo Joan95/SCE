@@ -13,26 +13,29 @@
 ActiveRecord::Schema.define(version: 20180516154642) do
 
   create_table "packs", force: :cascade do |t|
-    t.integer "price"
-    t.integer "toys_id"
+    t.string "price"
+    t.string "image"
+    t.integer "toy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["toys_id"], name: "index_packs_on_toys_id"
+    t.index ["toy_id"], name: "index_packs_on_toy_id"
   end
 
   create_table "pieces", force: :cascade do |t|
     t.string "description"
-    t.integer "price"
+    t.string "price"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "toys", force: :cascade do |t|
     t.string "name"
-    t.integer "numberPieces"
-    t.string "gender"
-    t.integer "price"
+    t.string "numberPieces"
     t.string "bio"
+    t.string "gender"
+    t.string "price"
+    t.string "image"
     t.integer "piece_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

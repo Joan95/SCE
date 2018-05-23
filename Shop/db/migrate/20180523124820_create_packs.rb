@@ -1,9 +1,10 @@
 class CreatePacks < ActiveRecord::Migration[5.1]
   def change
     create_table :packs do |t|
-      t.string :price
+      t.float :price
       t.string :image
-      t.references :toy, index: true
+      t.string :description
+      t.string :ageRange
       t.timestamps
     end
   end

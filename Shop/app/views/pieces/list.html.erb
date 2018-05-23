@@ -1,11 +1,11 @@
 <div class="main">
 	<div class="container">
-	<h2>Our Pieces!</h2>
+	<h2>These are our Pieces!</h2>
 		
 		<% @pieces.each do |p| %>
 			<div class="piece">
 				<%= image_tag p.image%>
-				<p> <%= p.description%> </p>
+				<p> <%= p.description%> <%= p.price%>€/unit </p>
 			</div>
 		<% end %>
 	</div>

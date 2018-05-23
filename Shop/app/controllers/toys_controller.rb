@@ -1,5 +1,5 @@
 class ToysController < ApplicationController
-	def index
+	def list
 		@toys = Toy.all
 	end
 end

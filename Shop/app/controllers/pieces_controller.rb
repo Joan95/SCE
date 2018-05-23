@@ -1,5 +1,5 @@
 class PiecesController < ApplicationController
-	def index
+	def list
 		@pieces = Piece.all
 	end
 end

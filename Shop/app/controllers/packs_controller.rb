@@ -1,5 +1,5 @@
 class PacksController < ApplicationController
-	def index
+	def list
 		@packs = Pack.all
 	end
 end

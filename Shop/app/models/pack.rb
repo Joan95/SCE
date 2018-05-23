@@ -1,4 +1,3 @@
 class Pack < ApplicationRecord
-	has_many :toys
-	has_many :pieces, through: :toys
+	has_and_belongs_to_many :toys
 end

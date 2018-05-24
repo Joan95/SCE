@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
 	get '/listToys', to: 'toys#list'
 	get '/listPieces', to: 'pieces#list'
+
+	get '/toys/:id', to: 'toys#show', as: 'toy'
 end

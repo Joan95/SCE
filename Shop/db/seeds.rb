@@ -93,10 +93,25 @@ piece41 = Piece.create(description: "Brick 1x6 Inside Bow", price: 0.22, image: 
 
 #---------->Toys<----------#
 
-toy1 = Toy.create(name: "Taj Mahal", numberPieces: 5923, description: "Build your own Taj Mahal without the need of cutting of your hands when it'll be finished!", price: 329.99, image: "https://sh-s7-live-s.legocdn.com/is/image//LEGO/10256_alt1?$main$", ageRange: "12-99")
+tajMahal = Toy.create(name: "Taj Mahal", numberPieces: 5923, description: "Build your own Taj Mahal without the need of cutting off your hands when you'll finish! But it will be pretty smaller than the real one...", price: 329.99, image: "https://sh-s7-live-s.legocdn.com/is/image//LEGO/10256_alt1?$main$", ageRange: "12-99", topic: "Buildings")
 
-toy1.pieces << [piece1,piece2]
+newYork = Toy.create(name: "New York City", numberPieces: 598, description: "Build your own city of New York, with all the gangsters you want! It's perfect for mounting your own superhero movie!", price: 54.99, image: "https://truimg.toysrus.com/product/images/lego-architecture-new-york-city-(21028)--CA9EBB86.zoom.jpg?fit=inside|640:640", ageRange: "12-99", topic: "Buildings")
 
-pack1 = Pack.create(price: 666, image: "https://vignette.wikia.nocookie.net/inciclopedia/images/d/d5/Pedobear.png/revision/latest/scale-to-width-down/296?cb=20081105173006", description: "Here goes the description of this pack...", ageRange: "12-99")
+eiffelTower = Toy.create(name: "Eiffel Tower", numberPieces: 321, description: "Build your own Eiffel Tower without the need of going to France", price: 34.99, image: "https://prodimage.images-bn.com/pimages/0673419190510_p2_v3_s550x406.jpg", ageRange: "12-99", topic: "Buildings")
 
-pack1.toys << [toy1]
+jokersMansion = Toy.create(name: "Joker's Mansion", numberPieces: 3444, description: "It goes without saying that this toy is awesome toy ever, JOKER's MANSION?! Commo'n. In your own room? Really let's think about it...", price: 279.99, image: "https://i2.wp.com/batman-news.com/wp-content/uploads/2017/09/70922_Box3_v391.jpg?quality=85&strip=info&ssl=1&w=800", ageRange: "12-99", topic: "DCComics")
+
+
+tajMahal.pieces << [piece1,piece2,piece10,piece11,piece12,piece20,piece21,piece22,piece30,piece31,piece32,piece40,piece41]
+
+newYork.pieces << [piece1,piece3,piece5,piece7,piece9,piece11,piece13,piece15,piece17,piece19]
+
+eiffelTower.pieces << [piece21,piece23,piece25,piece27,piece29,piece31,piece33,piece35,piece37,piece39,piece41]
+
+jokersMansion.pieces << [piece3,piece4,piece5,piece13,piece14,piece15,piece23,piece24,piece25,piece33,piece34,piece35]
+
+#---------->Packs<----------#
+
+buildings = Pack.create(price: 666, image: "https://vignette.wikia.nocookie.net/inciclopedia/images/d/d5/Pedobear.png/revision/latest/scale-to-width-down/296?cb=20081105173006", description: "Here goes the description of this pack...", ageRange: "12-99")
+
+buildings.toys << [tajMahal]

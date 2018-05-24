@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180523131657) do
     t.float "price"
     t.string "image"
     t.string "ageRange"
+    t.string "topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

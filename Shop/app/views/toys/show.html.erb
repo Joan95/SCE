@@ -1,0 +1,22 @@
+<div class="Main Toy-Show">
+	<div class="container">
+		<div class="toy">
+			<div class="info">
+				<%= image_tag @toy.image%>
+				<h3 class="toy-name"> <%= @toy.name %> </h3>
+				<p class="toy-price"> Price: <%= @toy.price %>€ </p>
+				<p class="toy-numberPieces"> Amount of pieces: <%= @toy.numberPieces %> </p>
+				<p class="toy-description"> Description: <%= @toy.description %> </p>
+				<p class="toy-ageRange"> Range of age: <%= @toy.ageRange %> </p>
+			</div>
+		</div>
+		<h2>List of Pieces it contains</h2>
+			<% @pieces.each do |p| %>
+				<div class="piece">
+					<%= image_tag p.image %>
+					<h4 class="piece-name"> <%= p.description %> </h4>
+					<p class="piece-price"> Price: <%= p.price %>€ </p>
+				</div>
+			<% end %>
+		</div>
+	</div>

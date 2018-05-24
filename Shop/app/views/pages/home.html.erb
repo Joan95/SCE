@@ -1,0 +1,19 @@
+<div class="main">
+	<div class="container">
+		<h1>Welcome to our web!</h1>
+		<p>If you need to contact with us, feel free to do it!</p>
+		<%= render 'layouts/user_widget' %>
+		<% if user_signed_in? %>
+			<p>You are currently logged!</p>
+			<p><b> Current elements in your awesome cart: </b></p>
+				
+				<% session[:products].each_with_index do |element, n| %>
+					<p>Position: <%= n%>; Product: <%= element%></p>
+				<% end %>
+
+		<% else %>
+			<p>You are not currently logged!</p>
+		<% end %>
+
+	</div>
+</div>

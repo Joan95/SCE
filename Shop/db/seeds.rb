@@ -112,6 +112,6 @@ jokersMansion.pieces << [piece3,piece4,piece5,piece13,piece14,piece15,piece23,pi
 
 #---------->Packs<----------#
 
-buildings = Pack.create(price: 666, image: "https://vignette.wikia.nocookie.net/inciclopedia/images/d/d5/Pedobear.png/revision/latest/scale-to-width-down/296?cb=20081105173006", description: "Here goes the description of this pack...", ageRange: "12-99")
+buildings = Pack.create(name: "Building's pack", price: 629.964, image: "https://gzhls.at/i/85/83/1148583-n0.jpg", description: "This is the pack of BUILDINGS, you could become a true Architect master by doing all of this stuff, but be aware that it is more difficult that it seems... Have fun!", ageRange: "12-99", discount: "10%")
 
-buildings.toys << [tajMahal]
+buildings.toys << [tajMahal,newYork,eiffelTower,jokersMansion]

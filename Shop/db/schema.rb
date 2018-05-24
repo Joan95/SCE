@@ -22,10 +22,12 @@ ActiveRecord::Schema.define(version: 20180524103527) do
   end
 
   create_table "packs", force: :cascade do |t|
+    t.string "name"
     t.float "price"
     t.string "image"
     t.string "description"
     t.string "ageRange"
+    t.string "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

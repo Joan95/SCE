@@ -1,0 +1,26 @@
+<div class="Main Pack-Show">
+	<div class="container">
+		<div class="pack">
+			<div class="info">
+				<%= image_tag @pack.image%>
+				<h3 class="pack-name"> <%= @pack.name %> </h3>
+				<p class="pack-price"> Price: <%= @pack.price %>€ </p>
+				<p class="pack-description"> Description: <%= @pack.description %> </p>
+				<p class="pack-ageRange"> Range of age: <%= @pack.ageRange %> </p>
+				<p class="pack-discount"> Discount: <%= @pack.discount %> </p>
+			</div>
+		</div>
+		<h2>List of Toys it contains</h2>
+			<% @toys.each do |t| %>
+				<div class="toy">
+					<%= image_tag t.image %>
+					<h4 class="toy-name"> <%= t.name %> </h4>
+					<p class="toy-price"> Price: <%= t.price %>€ </p>
+					<p class="toy-numberPieces"> Number of Pieces: <%= t.numberPieces %> </p>
+					<p class="toy-description"> Description: <%= t.description %> </p>
+					<p class="toy-topic"> Topic:<%= t.topic %> </p>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

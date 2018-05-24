@@ -15,5 +15,11 @@
 			<p>You are not currently logged!</p>
 		<% end %>
 
+
+		<%= link_to "See all the Packs", {:controller => "packs", :action => :list }, {:method => :get} %></p>
+		<%= link_to "See all the Toys", {:controller => "toys", :action => :list }, {:method => :get} %></p>
+		<%= link_to "See all the Pieces", {:controller => "pieces", :action => :list }, {:method => :get} %></p>
+		
+		
 	</div>
 </div>

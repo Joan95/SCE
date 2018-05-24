@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	get '/listPieces', to: 'pieces#list'
 
 	get '/toys/:id', to: 'toys#show', as: 'toy'
+	get '/packs/:id', to: 'packs#show', as: 'pack'
 
 	post '/addprod', to: 'cart#addprod'
 end

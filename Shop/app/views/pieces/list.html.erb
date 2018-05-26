@@ -1,4 +1,11 @@
 <div class="main">
+
+	<%= form_tag(piecesSearch_path, :controller => "pieces", :action => :search, :method => :get) do %>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag("Search") %>
+	<% end %>
+
+
 	<div class="container">
 	<h2>These are our Pieces!</h2>
 		

@@ -1,6 +1,6 @@
 <div class="main">
 	<div>
-		<%= form_tag(:controller => "toys", :action=> "search", :method => "get", name: "search") do %>
+		<%= form_tag(toysSearch_path, :controller => "toys", :action => :search, :method => :get) do %>
 			<%= text_field_tag :search, params[:search] %>
 			<%= submit_tag("Search") %>
 		<% end %>

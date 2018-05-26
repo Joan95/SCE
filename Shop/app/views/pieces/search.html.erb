@@ -1,0 +1,24 @@
+<div class="Main Toy-Search">
+	<h1> Pieces for you </h1>
+	<p> Your current search: "<%= params[:search] %>" </p>
+
+
+	<% if @pieces.length == 0%>
+		<p> Not resoults have been found, try to check the word spelling.</p>
+
+
+	<% else %>
+		<p> Displaying resoults found: <%= @pieces.length %> </p>
+			
+		<% @pieces.each do |p| %>
+			<div class="piece">
+				<%= image_tag p.image%>
+				<p> <%= p.description%> <%= p.price%>€/unit </p>
+			</div>
+		<% end %>
+
+	<% end %>
+
+	<p><%= link_to "See all the Pieces", {:controller => "pieces", :action => :list }, {:method => :get} %></p>
+	
+</div>

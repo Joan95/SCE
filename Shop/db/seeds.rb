@@ -101,6 +101,7 @@ eiffelTower = Toy.create(name: "Eiffel Tower", numberPieces: 321, description: "
 
 jokersMansion = Toy.create(name: "Joker's Mansion", numberPieces: 3444, description: "It goes without saying that this toy is awesome toy ever, JOKER's MANSION?! Commo'n. In your own room? Really let's think about it...", price: 279.99, image: "https://i2.wp.com/batman-news.com/wp-content/uploads/2017/09/70922_Box3_v391.jpg?quality=85&strip=info&ssl=1&w=800", ageRange: "12-99", topic: "DCComics")
 
+batmanRocket = Toy.create(name: "Batman's Rocket", numberPieces:643, description: "This is the true Rocket of Batman, awesome", price: 84.99, image: "http://holacaracola.es/14967-thickbox_default/lego-70923-batlanzadera-espacial.jpg", ageRange: "12-99", topic: "DCComics")
 
 tajMahal.pieces << [piece1,piece2,piece10,piece11,piece12,piece20,piece21,piece22,piece30,piece31,piece32,piece40,piece41]
 
@@ -110,8 +111,15 @@ eiffelTower.pieces << [piece21,piece23,piece25,piece27,piece29,piece31,piece33,p
 
 jokersMansion.pieces << [piece3,piece4,piece5,piece13,piece14,piece15,piece23,piece24,piece25,piece33,piece34,piece35]
 
+batmanRocket.pieces << [piece21,piece23,piece25,piece27,piece29,piece15,piece23,piece24,piece25,piece33,piece34,piece11,piece12,piece20,piece21,piece22,piece30]
+
+
 #---------->Packs<----------#
 
 buildings = Pack.create(name: "Building's pack", price: 629.964, image: "https://gzhls.at/i/85/83/1148583-n0.jpg", description: "This is the pack of BUILDINGS, you could become a true Architect master by doing all of this stuff, but be aware that it is more difficult that it seems... Have fun!", ageRange: "12-99", discount: "10%")
 
+dc = Pack.create(name: "DC's pack", price: 555, image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/DC_Comics_logo.png", description: "This is the pack of DC, become a superhero or a true villan!", ageRange: "12-99", discount: "")
+
 buildings.toys << [tajMahal,newYork,eiffelTower,jokersMansion]
+
+dc.toys << [jokersMansion, batmanRocket]

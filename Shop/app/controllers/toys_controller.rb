@@ -2,6 +2,7 @@ class ToysController < ApplicationController
 	def list
 		@toys = Toy.all
 	end
+
 	def search
 		if params[:search]
 			@toys = Toy.search(params[:search])

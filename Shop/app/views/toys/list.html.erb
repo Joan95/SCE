@@ -1,4 +1,10 @@
 <div class="main">
+	<div>
+		<%= form_tag(:controller => "toys", :action=> "search", :method => "get", name: "search") do %>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag("Search") %>
+		<% end %>
+	</div>
 	<div class="container">
 	<h2>These are our Toys!</h2>
 	<h3>Builded specially for you</h3>

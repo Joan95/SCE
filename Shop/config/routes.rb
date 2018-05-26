@@ -3,13 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 	root 'pages#home'
-
+	post '/toysSearch/:name', to: 'toys#search'
 	get '/listPacks', to: 'packs#list'
 	get '/listToys', to: 'toys#list'
 	get '/listPieces', to: 'pieces#list'
-
 	get '/toys/:id', to: 'toys#show', as: 'toy'
 	get '/packs/:id', to: 'packs#show', as: 'pack'
-
 	post '/addprod', to: 'cart#addprod'
 end

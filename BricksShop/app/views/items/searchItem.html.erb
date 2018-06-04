@@ -1,0 +1,42 @@
+<div class="main">
+	<div class="container">
+		<h1>These are our Items!</h1>
+		
+		<p><%= link_to "Return to Home Page", root_path %></p>
+
+		<p>Displaying items searched...</p>
+			
+	</div>
+
+	<p> Your current search has been: "<%= params[:search] %>" </p>
+
+
+	<% if @items.length == 0%>
+		<p> Not resoults have been found, try to check the word spelling.</p>
+	<% else %>
+		<p> Total of resoults found: <%= @items.length %> </p>
+			
+		<% if user_signed_in? %>
+			<% @items.each do |item| %>
+				<div class = "Item">
+					<%= image_tag item.image %>
+					<h3> <%= item.name %> - <%= item.price %>€ </h3>
+					<p> Description: <%= item.description %> </p>
+					<p> Category: <%= item.category %> </p>
+			<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+				</div>
+			<% end %>
+
+		<% else %> 
+
+			<% @items.each do |item| %>
+				<div class = "Item">
+					<%= image_tag item.image %>
+					<h3> <%= item.name %> - <%= item.price %>€ </h3>
+					<p> Description: <%= item.description %> </p>
+					<p> Category: <%= item.category %> </p>
+				</div>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

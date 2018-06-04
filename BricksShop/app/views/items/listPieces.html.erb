@@ -1,0 +1,39 @@
+<div class="main">
+	<div class="container">
+		<h1>These are our Pieces!</h1>
+		
+		<p><%= link_to "Return to Home Page", root_path %></p>
+
+		<%= form_tag(searchPiece_path, :controller => "items", :action => :searchPiece, :method => :get) do %>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag("Search Piece") %>
+		<% end %>
+
+		<p>Displaying Piece's List: <%= @itemsPieces.length %> </p>
+
+			<% if user_signed_in? %>
+				<% @itemsPieces.each do |item| %>
+					<div class = "Item">
+						<%= image_tag item.image %>
+						<h3> <%= item.name %> - <%= item.price %>€ </h3>
+						<p> Description: <%= item.description %> </p>
+						<p> Category: <%= item.category %> </p>
+				<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+					</div>
+				<% end %>
+
+			<% else %> 
+
+				<% @itemsPieces.each do |item| %>
+					<div class = "Item">
+						<%= image_tag item.image %>
+						<h3> <%= item.name %> - <%= item.price %>€ </h3>
+						<p> Description: <%= item.description %> </p>
+						<p> Category: <%= item.category %> </p>
+					</div>
+				<% end %>
+			<% end %>
+
+			
+	</div>
+</div>

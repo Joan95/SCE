@@ -1,0 +1,14 @@
+<div class="main">
+	<div class="container">
+		<h1>These are our toys!_</h1>
+		<p>Displaying default toy list...</p>
+
+			<% @itemsDefaultList.each do |item| %>
+				<div class = "Toy">
+					<%= image_tag item.image %>
+					<h3> <%= item.name %> </h3>
+
+				</div>
+			<% end %>
+	</div>
+</div>

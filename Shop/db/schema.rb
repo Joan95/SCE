@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525111637) do
-
-  create_table "assemblies", id: false, force: :cascade do |t|
-    t.integer "piece_id"
-    t.integer "toy_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["piece_id"], name: "index_assemblies_on_piece_id"
-    t.index ["toy_id"], name: "index_assemblies_on_toy_id"
-  end
+ActiveRecord::Schema.define(version: 20180601072439) do
 
   create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.string "image"
+    t.string "description"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,44 +33,6 @@ ActiveRecord::Schema.define(version: 20180525111637) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "packs", force: :cascade do |t|
-    t.string "name"
-    t.float "price"
-    t.string "image"
-    t.string "description"
-    t.string "ageRange"
-    t.string "discount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "packs_toys", force: :cascade do |t|
-    t.integer "toy_id"
-    t.integer "pack_id"
-    t.index ["pack_id"], name: "index_packs_toys_on_pack_id"
-    t.index ["toy_id"], name: "index_packs_toys_on_toy_id"
-  end
-
-  create_table "pieces", force: :cascade do |t|
-    t.string "description"
-    t.float "price"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "toys", force: :cascade do |t|
-    t.string "name"
-    t.integer "numberPieces"
-    t.string "description"
-    t.float "price"
-    t.string "image"
-    t.string "ageRange"
-    t.string "topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

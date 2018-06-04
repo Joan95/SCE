@@ -11,17 +11,14 @@
 				<% session[:products].each_with_index do |element, n| %>
 					<p>Position: <%= n%>; Product: <%= element%></p>
 				<% end %>
-
-		<% else %>
-			<p>You are not currently logged!</p>
 		<% end %>
 
+		<%= form_tag(itemsSearch_path, :controller => "items", :action => :searchItem, :method => :get) do %>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag("Search for Item") %>
+		<% end %>
 
-		<p><%= link_to "See all the Packs", {:controller => "packs", :action => :list }, {:method => :get} %></p>
-		<p><%= link_to "See all the Toys", {:controller => "toys", :action => :list }, {:method => :get} %></p>
-		<p><%= link_to "See all the Pieces", {:controller => "pieces", :action => :list }, {:method => :get} %></p>
 		
 	</div>
-
 	
 </div>

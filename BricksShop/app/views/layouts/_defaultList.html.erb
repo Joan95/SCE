@@ -1,0 +1,31 @@
+<div class="main">
+	<div class="container">
+		<h1>These are our toys!</h1>
+		<p>Displaying default toy list...</p>
+
+			<% if user_signed_in? %>
+				<% @itemsDefaultList.each do |item| %>
+					<div class = "Toy">
+						<%= image_tag item.image %>
+						<h3> <%= item.name %> - <%= item.price %>€ </h3>
+						<p> Description: <%= item.description %> </p>
+						<p> Category: <%= item.category %> </p>
+						<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+					</div>
+				<% end %>
+
+			<% else %> 
+
+				<% @itemsDefaultList.each do |item| %>
+					<div class = "Toy">
+						<%= image_tag item.image %>
+						<h3> <%= item.name %> - <%= item.price %>€ </h3>
+						<p> Description: <%= item.description %> </p>
+						<p> Category: <%= item.category %> </p>
+					</div>
+				<% end %>
+			<% end %>
+
+			
+	</div>
+</div>

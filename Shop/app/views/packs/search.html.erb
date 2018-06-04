@@ -9,6 +9,10 @@
 
 	<% else %>
 		<p> Displaying resoults found: <%= @packs.length %> </p>
+			<%= render 'layouts/user_widget' %>
+		<% if user_signed_in? %>
+			<p>You are currently logged!</p>
+
 			<% @packs.each do |p| %>
 				<div class="Pack">
 					<%= image_tag p.image %>
@@ -19,7 +23,19 @@
 					<%= link_to "Add to Cart", {:controller => "cart", :action => :addprod, :item => p }, {:method => :post} %></p>
 				</div>
 			<% end %>
+		<% else %>
+			<p>You are not currently logged!</p>
 
+			<% @packs.each do |p| %>
+				<div class="Pack">
+					<%= image_tag p.image%>
+					<h3> <%= p.name %> </h3>
+					<p> Price: <%= p.price %>€ </p>
+					<p> Discount: <%= p.discount %> </p>
+					<%= link_to "Show the toys", pack_path(p) %>
+				</div>
+			<% end %>
+		<% end %>
 	<% end %>
 
 	<p><%= link_to "See all the Packs", {:controller => "packs", :action => :list }, {:method => :get} %></p>

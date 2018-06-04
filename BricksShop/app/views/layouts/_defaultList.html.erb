@@ -6,7 +6,7 @@
 			<% if user_signed_in? %>
 				<% @itemsDefaultList.each do |item| %>
 					<div class = "Toy">
-						<%= image_tag item.image %>
+						<%= image_tag(item.image, :size => '300x300') %>
 						<h3> <%= item.name %> - <%= item.price %>€ </h3>
 						<p> Description: <%= item.description %> </p>
 						<p> Category: <%= item.category %> </p>
@@ -18,7 +18,7 @@
 
 				<% @itemsDefaultList.each do |item| %>
 					<div class = "Toy">
-						<%= image_tag item.image %>
+						<%= image_tag(item.image, :size => '300x300')%>
 						<h3> <%= item.name %> - <%= item.price %>€ </h3>
 						<p> Description: <%= item.description %> </p>
 						<p> Category: <%= item.category %> </p>

@@ -13,14 +13,16 @@
 		<p><%= link_to "See all the Packs", {:controller => "items", :action => :listPacks }, {:method => :get} %></p>
 		<p><%= link_to "See all the Toys", {:controller => "items", :action => :listToys }, {:method => :get} %></p>
 		<p><%= link_to "See all the Pieces", {:controller => "items", :action => :listPieces }, {:method => :get} %></p>
-
+		
 		<%= form_tag(searchItem_path, :controller => "items", :action => :searchItem, :method => :get) do %>
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag("Search Item") %>
+			<div class="form-group row">
+				<div class="col-xs-2">
+					<%= text_field_tag(:search, params[:search], :class => "form-control") %>
+				</div>
+				<%= submit_tag("Search Item", :class => "btn btn-default") %>
+			</div>
 		<% end %>
-
 		<%= render "layouts/defaultList", locals: {items: @itemsDefaultList} %>	
 
-	</div>
-	
+	</div>	
 </div>

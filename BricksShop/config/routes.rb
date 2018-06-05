@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 	get '/listToys', to: 'items#listToys'
 	get '/listPieces', to: 'items#listPieces'
 
+	# User actions #
+	get '/showUser', to: 'users#showUser'
+
 	# Cart actions #
 	get '/showCart', to: 'cart#showCart'
 	post '/addItem/:id', to: 'cart#addItem'

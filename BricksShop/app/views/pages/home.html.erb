@@ -5,7 +5,6 @@
 
 		<%= render 'layouts/user_widget' %>
 		<% if user_signed_in? %>
-			<p><%= render "layouts/viewProfile" %> </p>
 			<p><b> Current elements in your awesome <%= link_to "cart", {:controller => "cart", :action => :showCart }, {:method => :get} %>: </b> <%= session[:products].length%> elements</p>
 
 		<% end %>

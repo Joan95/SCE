@@ -1,0 +1,29 @@
+<div class="main">
+	<div class="container">
+		<h1>My Profile</h1>
+		<p><%= link_to "Return to Home Page", root_path %></p>
+
+		<table class="tableUserInformation">
+			<tbody>
+				<tr>
+					<td><%= t 'user.first_name: ' %></td>
+					<td><%= @user.first_name %></td>
+				</tr>
+				<tr>
+					<td><%= t 'user.last_name: ' %></td>
+					<td><%= @user.last_name %></td>
+				</tr>
+				<tr>
+					<td><%= t 'user.email: ' %></td>
+					<td><%= @user.email %></td>
+				</tr>
+					<td><%= t 'user.address: ' %></td>
+					<td><%= @user.address %></td>
+				<tr>
+					<td><%= t 'user.mobile: ' %></td>
+					<td><%= @user.mobile %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

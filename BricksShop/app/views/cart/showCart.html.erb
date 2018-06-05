@@ -2,7 +2,9 @@
 <p><%= link_to "Return to Home Page", root_path %></p>
 <% if user_signed_in? %>
 		<p><b> Current elements in your awesome cart: </b> <%= session[:products].length%> elements</p>
-				
+
+		<%= button_to "Empty Cart", {:controller => "cart", action: "emptyCart" }, {:method => :delete} %>
+
 		<% session[:products].each_with_index do |id, n| %>
 			<p>Position: <%= n%></p>
 			<p> <%= image_tag Item.find(id).image %> </p>

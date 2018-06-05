@@ -1,24 +1,25 @@
 <div class="main">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<h1 class="title">Welcome to CustomBlocks!</h1>
-			</div>
-			<div class="col-sm-2">
-				<%= render 'layouts/user_widget' %>
-			</div>
-			<div class="col-sm-2>
-				<%= form_tag(searchItem_path, :controller => "items", :action => :searchItem, :method => :get) do %>
-					<div class="form-group row">
-						<div class="col-xs-2">
-							<%= text_field_tag(:search, params[:search], :class => "form-control") %>
-						</div>
-						<%= submit_tag("Search Item", :class => "btn btn-default") %>
-					</div>
-				<% end %>
-			</div>		
+	<div class="row">
+		<div class="col-sm-6">
+			<h1 class="title">Welcome to CustomBlocks!</h1>
 		</div>
-		<p>If you need to contact with us, feel free to do it!</p>
+		<div class="col-sm-2">
+			<%= render 'layouts/user_widget' %>
+		</div>
+		<div class="col-sm-2>
+			<%= form_tag(searchItem_path, :controller => "items", :action => :searchItem, :method => :get) do %>
+				<div class="form-group row">
+					<div class="col-xs-2">
+						<%= text_field_tag(:search, params[:search], :class => "form-control") %>
+					</div>
+					<%= submit_tag("Search Item", :class => "btn btn-default") %>
+				</div>
+			<% end %>
+		</div>		
+	</div>
+	<div class="container">
+
+		<p>Categories</p>
 
 		
 		<% if user_signed_in? %>

@@ -13,14 +13,18 @@
 					</div>
 				<% end %>
 			<% else %> 
-				<% @itemsDefaultList.each do |item| %>
-					<div class = "Toy" style="max-height:30%;max-width:30%">
-						<%= image_tag(item.image, :class => "img-thumbnail")%>
-						<h3 align="justify"> <%= item.name %> - <%= item.price %>€ </h3>
-						<p align="justify"> Description: <%= item.description %> </p>
-						<p align="justify"> Category: <%= item.category %> </p>		
-					</div>
-				<% end %>
+
+				<% @itemsDefaultList.each do |item| %>									
+					<div class = "Toy item polaroid">
+						<%= image_tag(item.image, :class => "item" )%>
+						<div class="container2">
+							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+							<p class="item"> Description: <%= item.description %> </p>
+							<p class="item"> Category: <%= item.category %> </p>		
+						</div>
+					</div>								
+				<% end %>	
+		
 			<% end %>	
 	</div>
 </div>

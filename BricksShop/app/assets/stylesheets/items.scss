@@ -1,3 +1,43 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img.item {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+p.item {
+	text-align: justify;
+}
+
+h1.title {
+	text-align: center;
+}
+
+h3.item {
+	text-align-last: center;
+}
+
+div.item {
+	max-height: 30%;
+	max-width: 30%
+}
+
+div.polaroid {
+	margin-top: 50px;
+	width: 80%;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.container2 {
+	text-align: center;
+	padding: 10px 20px;
+}

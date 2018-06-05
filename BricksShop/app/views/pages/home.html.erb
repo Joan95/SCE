@@ -1,27 +1,51 @@
 <div class="main">
-	<div class="container">
-		<h1>Welcome to CustomBlocks!</h1>
-		<p>If you need to contact with us, feel free to do it!</p>
-
-		<%= render 'layouts/user_widget' %>
-		<% if user_signed_in? %>
-			<p><b> Current elements in your awesome <%= link_to "cart", {:controller => "cart", :action => :showCart }, {:method => :get} %>: </b> <%= session[:products].length%> elements</p>
-
-		<% end %>
-
-		<p><%= link_to "See all the Packs", {:controller => "items", :action => :listPacks }, {:method => :get} %></p>
-		<p><%= link_to "See all the Toys", {:controller => "items", :action => :listToys }, {:method => :get} %></p>
-		<p><%= link_to "See all the Pieces", {:controller => "items", :action => :listPieces }, {:method => :get} %></p>
-		
-		<%= form_tag(searchItem_path, :controller => "items", :action => :searchItem, :method => :get) do %>
-			<div class="form-group row">
+	<!-- Header -->
+	<div style="margin-top: 2%; margin-bottom: 5%" class="row">
+ 		<div class="col-sm-6">
+ 			<h1 class="title">Welcome to CustomBlocks!</h1>
+ 		</div>
+ 		<div class="col-sm-2">
+ 			<%= render 'layouts/user_widget' %>
+ 		</div>
+ 		<div class="col-sm-2>
+ 			<%= form_tag(searchItem_path, :controller => "items", :action => :searchItem, :method => :get) do %>				
 				<div class="col-xs-2">
 					<%= text_field_tag(:search, params[:search], :class => "form-control") %>
 				</div>
-				<%= submit_tag("Search Item", :class => "btn btn-default") %>
+				<%= submit_tag("Search Item", :class => "btn btn-default") %>				
+ 			<% end %>
+ 		</div>		
+ 	</div>
+	
+	<!-- Categories panel -->
+	<div class="container-categories">
+		<div class="row">
+			<div class="col-sm-1">
+				<p style="text-align:center">Categories</p>
 			</div>
-		<% end %>
-		<%= render "layouts/defaultList", locals: {items: @itemsDefaultList} %>	
+		</div>
+		<div class="row">
+			<div class="col-sm-1">
+				<p class="categories"><%= link_to "Packs", {:controller => "items", :action => :listPacks }, {:method => :get} %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-1">
+				<p class="categories"><%= link_to "Toys", {:controller => "items", :action => :listToys }, {:method => :get} %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-1">			
+				<p class="categories"><%= link_to "Pieces", {:controller => "items", :action => :listPieces }, {:method => :get} %></p>
+			</div>
+		</div>
+	</div>
 
+	<!-- Items list -->
+	<div class="container">		
+		<% if user_signed_in? %>
+			<p><b> Current elements in your awesome <%= link_to "cart", {:controller => "cart", :action => :showCart }, {:method => :get} %>: </b> <%= session[:products].length%> elements</p>
+		<% end %>	
+		<%= render "layouts/defaultList", locals: {items: @itemsDefaultList} %>	
 	</div>	
 </div>

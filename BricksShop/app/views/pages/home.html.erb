@@ -1,11 +1,18 @@
 <div class="main">
 	<!-- Header -->
-	<h1 class="title">Welcome to CustomBlocks!</h1>
-	<div style="margin-top: 2%; margin-bottom: 5%" class="row">
+	<div class="row">
+		<div class="col-sm-10">
+			<h1 class="title">Welcome to CustomBlocks!</h1>
+		</div>
+		<div class="col-sm-2" style="margin-top:2%">
+			<%= render 'layouts/user_widget' %>
+		</div>
+	</div>
+	<div style="margin-top: 2%;" class="row">
  		<div class="col-sm-9">
- 			<%= render 'layouts/user_widget' %>
+ 			
  		</div>
- 		<div style="margin-right:0px" style="align:right">
+ 		<div style="margin-right:0px; align:right">
  			<%= form_tag(searchItem_path, :controller => "items", :action => :searchItem, :method => :get) do %>				
 				<div class="col-xs-2">
 					<%= text_field_tag(:search, params[:search], :class => "form-control") %>

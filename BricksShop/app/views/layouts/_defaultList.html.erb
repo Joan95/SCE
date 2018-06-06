@@ -13,7 +13,7 @@
 		<% else %> 
 
 			<% @itemsDefaultList.each do |item| %>									
-				<div class = "Toy item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px;">
+				<div class = "Toy item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:550px">
 					<%= image_tag(item.image, :class => "item" )%>
 					<div class="container2">
 						<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>

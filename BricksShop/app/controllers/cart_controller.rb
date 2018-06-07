@@ -14,4 +14,8 @@ class CartController < ApplicationController
 		(session[:products] = [])
 		redirect_back fallback_location: root_path
 	end
+
+	def priceToPay
+		@priceToPay = session[:products].map{|id| Item.find(id).price}.reduce(:+)
+	end
 end

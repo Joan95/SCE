@@ -1,13 +1,24 @@
 <div class="main">
-	<div class="container">
-		<h1>These are our Toys!</h1>
-		
-		<p><%= link_to "Return to Home Page", root_path %></p>
+	<div class="row">
+		<div class="col-sm-10">
+			<h1 class="title">These are our Toys!</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-9">
+		</div>
+		<div style="margin-right:0px; align:right">
+			<%= form_tag(searchToy_path, :controller => "items", :action => :searchToy, :method => :get) do %>
+				<div class="col-xs-2">
+					<%= text_field_tag :search, params[:search], :class => "form-control" %>
+				</div>
+				<%= submit_tag("Search", :class => "btn btn-default") %>
+			<% end %>
+		</div>
+	</div>
 
-		<%= form_tag(searchToy_path, :controller => "items", :action => :searchToy, :method => :get) do %>
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag("Search Toy") %>
-		<% end %>
+	<div class="container">	
+		<p><%= link_to "Return to Home Page", root_path %></p>
 
 		<p>Displaying Toy's List: <%= @itemsToys.length %> </p>
 
@@ -25,11 +36,13 @@
 			<% else %> 
 
 				<% @itemsToys.each do |item| %>
-					<div class = "Toy">
-						<%= image_tag item.image %>
-						<h3> <%= item.name %> - <%= item.price %>€ </h3>
-						<p> Description: <%= item.description %> </p>
-						<p> Category: <%= item.category %> </p>
+					<div class = "Toy item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:550px">
+						<%= image_tag item.image, :class => "item" %>
+						<div class="container2">
+							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+							<p class="item"> Description: <%= item.description %> </p>
+							<p class="item"> Category: <%= item.category %> </p>
+						</div>
 					</div>
 				<% end %>
 			<% end %>

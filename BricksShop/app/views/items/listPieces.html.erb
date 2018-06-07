@@ -25,19 +25,21 @@
 
 			<% if user_signed_in? %>
 				<% @itemsPieces.each do |item| %>
-					<div class = "Item">
-						<%= image_tag item.image %>
-						<h3> <%= item.name %> - <%= item.price %>€ </h3>
-						<p> Description: <%= item.description %> </p>
-						<p> Category: <%= item.category %> </p>
-				<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">
+						<%= image_tag item.image, :class => "item" %>
+						<div class="container2">
+							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+							<p class="item"> Description: <%= item.description %> </p>
+							<p class="item"> Category: <%= item.category %> </p>
+							<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+						</div>
 					</div>
 				<% end %>
 
 			<% else %> 
 
 				<% @itemsPieces.each do |item| %>
-					<div class = "item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">
+					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">
 						<%= image_tag item.image, :class => "item" %>
 						<div class="container2">
 							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>

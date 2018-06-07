@@ -1,43 +1,49 @@
 <div class="main">
-	<div class="container">
-		<h1>These are our Toys!</h1>
-		
+	<div class="row">
+		<div class="col-sm-10">
+			<h1 class="title">These are our Toys!</h1>
+		</div>
+	</div>
+
+	<div class="container">	
 		<p> <%= link_to "Return to Home Page", root_path %> </p>
 		<p> <%= link_to "Return to See all the Toys", listToys_path%> </p>
 
 		<p>Displaying toys searched...</p>
 			
-	</div>
+		<p> Your current toy search has been: "<%= params[:search] %>" </p>
 
-	<p> Your current toy search has been: "<%= params[:search] %>" </p>
-
-
-	<% if @itemsToys.length == 0%>
-		<p> Not resoults have been found, try to check the word spelling.</p>
-	<% else %>
-		<p> Total of toys found: <%= @itemsToys.length %> </p>
+		<% if @itemsToys.length == 0%>
+			<p> Not resoults have been found, try to check the word spelling.</p>
+		<% else %>
+			<p> Total of toys found: <%= @itemsToys.length %> </p>
 			
-		<% if user_signed_in? %>
-			<% @itemsToys.each do |item| %>
-				<div class = "Item">
-					<%= image_tag item.image %>
-					<h3> <%= item.name %> - <%= item.price %>€ </h3>
-					<p> Description: <%= item.description %> </p>
-					<p> Category: <%= item.category %> </p>
-			<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
-				</div>
-			<% end %>
+			<% if user_signed_in? %>
+				<% @itemsToys.each do |item| %>
+					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:550px">
+						<%= image_tag item.image, :class => "item" %>
+						<div class="container2">
+							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+							<p class="item"> Description: <%= item.description %> </p>
+							<p class="item"> Category: <%= item.category %> </p>
+							<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+						</div>
+					</div>
+				<% end %>
 
-		<% else %> 
+			<% else %> 
 
-			<% @itemsToys.each do |item| %>
-				<div class = "Item">
-					<%= image_tag item.image %>
-					<h3> <%= item.name %> - <%= item.price %>€ </h3>
-					<p> Description: <%= item.description %> </p>
-					<p> Category: <%= item.category %> </p>
-				</div>
+				<% @itemsToys.each do |item| %>
+					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:550px">
+						<%= image_tag item.image, :class => "item" %>
+						<div class="container2">
+							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+							<p class="item"> Description: <%= item.description %> </p>
+							<p class="item"> Category: <%= item.category %> </p>
+						</div>
+					</div>
+				<% end %>
 			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 </div>

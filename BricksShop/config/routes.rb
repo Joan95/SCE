@@ -25,4 +25,6 @@ Rails.application.routes.draw do
 	delete '/removeItem/:position', to: 'cart#removeItem'
 	delete '/emptyCart', to: 'cart#emptyCart'
 
+	# Order actions #
+	get '/order/:id', to: 'order#listOrders'
 end

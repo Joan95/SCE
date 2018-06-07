@@ -15,7 +15,12 @@ class CartController < ApplicationController
 		redirect_back fallback_location: root_path
 	end
 
-	def priceToPay
-		@priceToPay = session[:products].map{|id| Item.find(id).price}.reduce(:+)
+	def orderPayment
+		order = Order.create(user_id: current_user.id, totalPrice: session[:products].map{|id| Item.find(id).price}.reduce(:+))
+		session[:products].each do |id|
+			Order_status_product.create(order_id: order.id, item_id: id, status: "Ordered")
+		end
+		session[:products].clear
+		redirect_to controller: "order", action: "listOrders", id: order.id
 	end
 end

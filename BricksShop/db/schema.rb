@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604164748) do
+ActiveRecord::Schema.define(version: 20180607095748) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,47 @@ ActiveRecord::Schema.define(version: 20180604164748) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'long' for column 'mobile'
+  create_table "order_status_products", force: :cascade do |t|
+    t.string "status"
+    t.integer "order_id"
+    t.integer "items_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["items_id"], name: "index_order_status_products_on_items_id"
+    t.index ["order_id"], name: "index_order_status_products_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_status_products_id"
+    t.float "totalPrice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_status_products_id"], name: "index_orders_on_order_status_products_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "mobile"
+    t.integer "orders_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["orders_id"], name: "index_users_on_orders_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
 
 end

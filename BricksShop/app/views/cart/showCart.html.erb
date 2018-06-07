@@ -1,9 +1,13 @@
 <h1><b>Displaying your Cart!</b></h1>
 
-<h2><p>Price to Pay: <%= session[:products].map{|id| Item.find(id).price}.reduce(:+) %>€</p></h2>
-
 <p><%= link_to "Return to Home Page", root_path %></p>
 <% if user_signed_in? %>
+
+	<h2><p>Price to Pay: <%= session[:products].map{|id| Item.find(id).price}.reduce(:+) %>€</p></h2>
+
+	<p><%= button_to "Order Cart" %></p>
+
+
 		<p><b> Current elements in your awesome cart: </b> <%= session[:products].length%> elements</p>
 
 		<%= button_to "Empty Cart", {:controller => "cart", action: "emptyCart" }, {:method => :delete} %>

@@ -1,7 +1,7 @@
 <div class="main">
 	<div class="container">
 			
-		<p><h3>Displaying information of <%= @orders.length %> orders</h3></p>
+		<h3>Displaying information of <%= @orders.length %> orders</h3>
 		
 		<% @orders.each do |order| %>
 			<table>
@@ -28,9 +28,9 @@
 						<% end %></td>
 				</tr>
 					
-				</tbody>
+				
 			</table>
-			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get }%>
+			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get, :class => "btn btn-primary" }%>
 		<% end %>
 	</div>
 </div>

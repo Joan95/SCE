@@ -40,10 +40,10 @@
 						<% end %></td>
 				</tr>
 					
-				</tbody>
+				
 			</table>
-			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get }%>
-			<%= button_to "Cancel Order", { :controller => "orders", :action => "cancelOrder", id: order.id }, { :method => :get }%>
+			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get, :class => "btn btn-primary", :style => "margin-top:2%" }%>
+			<%= button_to "Cancel Order", { :controller => "orders", :action => "cancelOrder", id: order.id }, { :method => :get, :class => "btn btn-danger", :style => "margin-top:2%" }%>
 		<% end %>
 	</div>
 </div>

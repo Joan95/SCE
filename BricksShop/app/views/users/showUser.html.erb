@@ -2,27 +2,52 @@
 	<div class="container">
 		<h1>My Profile</h1>
 		<p><%= link_to "Return to Home Page", root_path %></p>
-
-		<table>
-			<tr>
-				<td><%= t 'user.first_name: ' %></td>
-				<td><%= @user.first_name %></td>
-			</tr>
-			<tr>
-				<td><%= t 'user.last_name: ' %></td>
-				<td><%= @user.last_name %></td>
-			</tr>
-			<tr>
-				<td><%= t 'user.email: ' %></td>
-				<td><%= @user.email %></td>
-			</tr>
-				<td><%= t 'user.address: ' %></td>
-				<td><%= @user.address %></td>
-			<tr>
-				<td><%= t 'user.mobile: ' %></td>
-				<td><%= @user.mobile %></td>
-			</tr>
-		</table>
-		<%= link_to "Edit", { :controller => "registrations", :action => :edit, :method => :get} %>
+		<div>
+			<div class="row" style="margin-bottom:1%">
+				<div class="col-sm-2">
+					<%= t 'user.first_name: ' %>&nbsp;
+				</div>
+				<div class="col-sm-2", style="text-align:left">
+					<%= @user.first_name %>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom:1%;">
+				<div class="col-sm-2">
+					<%= t 'user.last_name: ' %>&nbsp;
+				</div>
+				<div class="col-sm-2">
+					<%= @user.last_name %>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom:1%">
+				<div class="col-sm-2">
+					<%= t 'user.email: ' %>&nbsp;
+				</div>
+				<div class="col-sm-2">
+					<%= @user.email %>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom:1%">
+				<div class="col-sm-2">
+					<%= t 'user.address: ' %>&nbsp;
+				</div>
+				<div class="col-sm-2">
+					<%= @user.address %>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom:1%">
+				<div class="col-sm-2">
+					<%= t 'user.mobile: ' %>&nbsp;
+				</div>
+				<div class="col-sm-2">
+					<%= @user.mobile %>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom:1%">
+				<div class="col-sm-2">
+					<%= link_to "Edit", { :controller => "registrations", :action => :edit, :method => :get}, class: "btn btn-info" %>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

@@ -5,38 +5,67 @@
 		</div>
 	</div>
 	<div class="container">
-			
-		<p><%= link_to "Return to Home Page", root_path %></p>
-		<p><%= link_to "See your active Orders", listOrders_path %></p>
+		<div class="row">
+			<div class="col-sm-2">	
+				<p><%= link_to "Return to Home Page", root_path %></p>
+			</div>
+		</div>
 
-		<p>Displaying Order details...</p>
-		
-		<table>
-			<tr>
-				<td>Order ID: </td>
-				<td><%= @order.id %></td>
-			</tr>
-			<tr>
-				<td>Order price: </td>
-				<td><%= @totalPrice %>€</td>
-			</tr>
-			<tr>
-				<td>Order status: </td>
-				<td><%= @order.status %></td>
-			</tr>
-			<tr>
-				<td>Amount of products ordered: <%= @orderProducts.length %></td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<% @orderProducts.each do |order| %>
-					<td><%= image_tag Item.find(order.items_id).image %></td>
-					<td><%= Item.find(order.items_id).name%> - <%= Item.find(order.items_id).price%>€</td>
-			
-				<% end %>
-			</tr>
-		</table>
+		<div class="row">
+			<div class="col-sm-2">
+				<p><%= link_to "See your active Orders", listOrders_path %></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<p>Displaying Order details...</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<p>Order ID: </p>
+			</div>				
+			<div class="col-sm-2">
+				<%= @order.id %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<p>Order price: </p>
+			</div>
+			<div class="col-sm-2">
+				<%= @totalPrice %>€
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<p>Order status: </p>
+			</div>
+			<div class="col-sm-2">
+				<%= @order.status %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4">
+				<p>Amount of products ordered:&nbsp;&nbsp; <%= @orderProducts.length %></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<% @orderProducts.each do |order| %>
+				<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">		
+					<%= image_tag Item.find(order.items_id).image, :class => "item" %>
+					<div class="container2" style="height:40%;">
+						<p style="margin-top:25%"><%= Item.find(order.items_id).name %> - <%= Item.find(order.items_id).price%>€</p>
+					</div>
+				</div>
+			<% end %>
+		</div>
 
 	</div>
 </div>

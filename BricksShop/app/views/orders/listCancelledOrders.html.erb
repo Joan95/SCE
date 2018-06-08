@@ -42,7 +42,7 @@
 					
 				</tbody>
 			</table>
-			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get }%>
+			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get, :class => "btn btn-primary", :style => "margin-top:2%;" }%>
 		<% end %>
 	</div>
 </div>

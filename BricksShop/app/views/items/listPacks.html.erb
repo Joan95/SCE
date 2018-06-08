@@ -33,7 +33,7 @@
 							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
 							<p class="item"> Description: <%= item.description %> </p>
 							<p class="item"> Category: <%= item.category %> </p>
-							<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post} %></p>
+							<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post, :class => "btn btn-success"} %></p>
 						</div>
 					</div>
 				<% end %>

@@ -1,24 +1,31 @@
-<h1><b>Displaying your Cart!</b></h1>
+<div class="main">
+	<div class="container">
+		<h1 class="title"><b>Displaying your Cart!</b></h1>
 
-<p><%= link_to "Return to Home Page", root_path %></p>
-<% if user_signed_in? %>
+		<p><%= link_to "Return to Home Page", root_path %></p>
+		<% if user_signed_in? %>
 
-	<h2><p>Price to Pay: <%= session[:products].map{|id| Item.find(id).price}.reduce(:+) %>€</p></h2>
+			<h2 style="margin-bottom:2%"><p>Price to Pay: <%= session[:products].map{|id| Item.find(id).price}.reduce(:+) %>€</p></h2>
 
-	<p><%= button_to "Order Cart", {:controller => "cart", action: "orderPayment" }, {:method => :get} %></p>
+			<%= button_to( "Order Cart", {:controller => "cart", action: "orderPayment" }, {:method => :get, :class => "btn btn-success", :style => "margin-bottom:2%"} )%>
 
 
-		<p><b> Current elements in your awesome cart: </b> <%= session[:products].length%> elements</p>
+				<p style="margin-bottom:2%"><b> Current elements in your awesome cart: </b> <%= session[:products].length%> elements</p>
 
-		<%= button_to "Empty Cart", {:controller => "cart", action: "emptyCart" }, {:method => :delete} %>
+				<%= button_to "Empty Cart", {:controller => "cart", action: "emptyCart", :class => "btn btn-danger" }, {:method => :delete, :class => "btn btn-danger"} %>
 
-		<% session[:products].each_with_index do |id, n| %>
-			<p>Position: <%= n%></p>
-			<p> <%= image_tag Item.find(id).image %> </p>
-			<p> Product: <%= Item.find(id).name %>; Id: <%= Item.find(id).id %>; Price: <%= Item.find(id).price %>€ </p>
-			<p> <%= button_to "Remove item from my Cart", {:controller => "cart", :action => :removeItem, :position => n }, {:method => :delete} %> </p>
+				<% session[:products].each_with_index do |id, n| %>
+					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">
+						<%= image_tag Item.find(id).image, :class => "item" %>
+						<div class="container2">
+							<p class="item"> Product: <%= Item.find(id).name %>; Id: <%= Item.find(id).id %>; Price: <%= Item.find(id).price %>€ </p>
+							<%= button_to "Remove item from my Cart", {:controller => "cart", :action => :removeItem, :position => n }, {:method => :delete, :class => "btn btn-danger"} %>
+						</div>
+					</div>
+				<% end %>
+
+		<% else %>
+			<p>We are sorry, you are not logged so you can't see your Cart!</p>
 		<% end %>
-
-<% else %>
-	<p>We are sorry, you are not logged so you can't see your Cart!</p>
-<% end %>
+	</div>
+</div>

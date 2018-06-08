@@ -14,30 +14,30 @@
 		<% @orders.each do |order| %>
 			<table>
 				<tr>
-					<td>Order ID: </td>
-					<td><%= order.id %></td>
+					<td><p>Order ID: </p></td>
+					<td><p><%= order.id %></p></td>
 				</tr>
 				<tr>
-					<td>Order user: </td>
-					<td><%= User.find(order.user.id).first_name %></td>
+					<td><p>Order user: </p></td>
+					<td><p><%= User.find(order.user.id).first_name %></p></td>
 				</tr>
 				<tr>				
-					<td>Order price: </td>
-					<td><%= order.totalPrice %>€</td>
+					<td><p>Order price: </p></td>
+					<td><p><%= order.totalPrice %>€</p></td>
 				</tr>
 				<tr>
-					<td>Number of products: </td>
-					<td><%= order.order_products.length %></td>
+					<td><p>Number of products: </p></td>
+					<td><p><%= order.order_products.length %></p></td>
 				</tr>
 				<tr>
-					<td>Order status: </td>
-					<td><%= order.status %></td>
+					<td><p>Order status: </p></td>
+					<td><p><%= order.status %></p></td>
 				</tr>
 				<tr>
-					<td>Order products: </td>
+					<td><p>Order products: </td>
 						<td><% order.order_products.each do |item| %>
 							<%= Item.find(item.items_id).name %>
-						<% end %></td>
+						<% end %></p></td>
 				</tr>
 					
 				

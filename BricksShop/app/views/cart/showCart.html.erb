@@ -17,9 +17,10 @@
 				<% session[:products].each_with_index do |id, n| %>
 					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">
 						<%= image_tag Item.find(id).image, :class => "item" %>
-						<div class="container2">
+						<div class="container2" style="height:40%">
 							<p class="item"> Product: <%= Item.find(id).name %>; Id: <%= Item.find(id).id %>; Price: <%= Item.find(id).price %>€ </p>
-							<%= button_to "Remove item from my Cart", {:controller => "cart", :action => :removeItem, :position => n }, {:method => :delete, :class => "btn btn-danger"} %>
+							<%= button_to "Remove item from my Cart", {:controller => "cart", :action => :removeItem, :position => n }, {:method => :delete, :class => "btn btn-danger", :style => "position: absolute;
+    bottom:10%;left:20%"} %>
 						</div>
 					</div>
 				<% end %>

@@ -27,11 +27,11 @@
 				<% @itemsPieces.each do |item| %>
 					<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">
 						<%= image_tag item.image, :class => "item" %>
-						<div class="container2">
-							<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+						<div class="container2" style="height:auto">
+							<h3 class="item"><%= item.name %> - <%= item.price %>€</h3>
 							<p class="item"> Description: <%= item.description %> </p>
 							<p class="item"> Category: <%= item.category %> </p>							
-							<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post, :class => "btn btn-success"} %></p>
+							<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post, :class => "btn btn-success", :style => "align:bottom"} %></p>
 						</div>
 					</div>
 				<% end %>

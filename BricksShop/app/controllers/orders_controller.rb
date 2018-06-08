@@ -1,7 +1,16 @@
 class OrdersController < ApplicationController
 
-	def listOrders 
-		@order = Order.find(params[:id].to_i)
-		@orderStatusProdcuts = @order.order_status_products
+	def showOrder 
+		@order = Order.find(params[:id])
+		@orderProducts = @order.order_products
+		@totalPrice = @order.totalPrice
+	end
+
+	def listOrders
+
+	end
+
+	def emptyOrder
+
 	end
 end

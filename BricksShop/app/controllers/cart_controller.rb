@@ -16,11 +16,15 @@ class CartController < ApplicationController
 	end
 
 	def orderPayment
-		order = Order.create(user_id: current_user.id, totalPrice: session[:products].map{|id| Item.find(id).price}.reduce(:+))
-		session[:products].each do |id|
-			Order_status_product.create(order_id: order.id, item_id: id, status: "Ordered")
+		if (session[:products].length > 0)
+			order = Order.create(user_id: current_user.id, totalPrice: session[:products].map{|id| Item.find(id).price}.reduce(:+), status: "Ordered")
+			session[:products].each do |id|
+				OrderProduct.create(order_id: order.id, items_id: id)
+			end
+			session[:products].clear
+			redirect_to controller: "orders", action: "showOrder", id: order.id
+		else 
+			redirect_to controller: "orders", action: "emptyOrder"
 		end
-		session[:products].clear
-		redirect_to controller: "order", action: "listOrders", id: order.id
 	end
 end

@@ -22,23 +22,23 @@ ActiveRecord::Schema.define(version: 20180607095748) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_status_products", force: :cascade do |t|
-    t.string "status"
+  create_table "order_products", force: :cascade do |t|
     t.integer "order_id"
     t.integer "items_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["items_id"], name: "index_order_status_products_on_items_id"
-    t.index ["order_id"], name: "index_order_status_products_on_order_id"
+    t.index ["items_id"], name: "index_order_products_on_items_id"
+    t.index ["order_id"], name: "index_order_products_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "order_status_products_id"
+    t.integer "order_products_id"
     t.float "totalPrice"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_status_products_id"], name: "index_orders_on_order_status_products_id"
+    t.index ["order_products_id"], name: "index_orders_on_order_products_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

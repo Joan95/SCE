@@ -1,0 +1,31 @@
+<div class="main">
+	<div class="row">
+		<div class="col-sm-10">
+			<h1 class="title">This is your Order!</h1>
+		</div>
+	</div>
+	<div class="container">
+			
+		<p><%= link_to "Return to Home Page", root_path %></p>
+
+		<p>Displaying Order details...</p>
+
+		<p>Order ID: <%= @order.id %></p>
+		<p>Order price: <%= @totalPrice %>€</p>
+		<p>Order status: <%= @order.status %></p>
+		<p>Amount of products ordered <%= @orderProducts.length %></p>
+		
+		<% @orderProducts.each do |order| %>
+			<p><%= image_tag Item.find(order.items_id).image %></p>
+			<p><%= Item.find(order.items_id).name%> - <%= Item.find(order.items_id).price%></p>
+			
+
+
+
+
+
+
+		<% end %>
+
+	</div>
+</div>

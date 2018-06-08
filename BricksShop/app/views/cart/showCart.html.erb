@@ -5,7 +5,7 @@
 
 	<h2><p>Price to Pay: <%= session[:products].map{|id| Item.find(id).price}.reduce(:+) %>€</p></h2>
 
-	<p><%= button_to "Order Cart" %></p>
+	<p><%= button_to "Order Cart", {:controller => "cart", action: "orderPayment" }, {:method => :get} %></p>
 
 
 		<p><b> Current elements in your awesome cart: </b> <%= session[:products].length%> elements</p>

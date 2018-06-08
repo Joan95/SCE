@@ -24,7 +24,10 @@ Rails.application.routes.draw do
 	post '/addItem/:id', to: 'cart#addItem'
 	delete '/removeItem/:position', to: 'cart#removeItem'
 	delete '/emptyCart', to: 'cart#emptyCart'
+	get '/orderPayment', to: 'cart#orderPayment'
 
 	# Order actions #
-	get '/order/:id', to: 'order#listOrders'
+	get '/order/:id', to: 'orders#showOrder'
+	get '/listOrders', to: 'orders#listOrders'
+	get '/emptyOrder', to: 'orders#emptyOrder'
 end

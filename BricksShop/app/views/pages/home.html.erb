@@ -49,7 +49,7 @@
 	<!-- Items list -->
 	<div class="container">		
 		<% if user_signed_in? %>
-			<p><b> Current elements in your awesome <%= link_to "cart", {:controller => "cart", :action => :showCart }, {:method => :get} %>: </b> <%= session[:products].length%> elements</p>
+			<h2><b> Current elements in your awesome <%= link_to "cart", {:controller => "cart", :action => :showCart }, {:method => :get} %>: </b> <%= session[:products].length%> elements</h2>
 		<% end %>	
 		<%= render "layouts/defaultList", locals: {items: @itemsDefaultList} %>	
 	</div>	

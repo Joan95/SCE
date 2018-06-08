@@ -1,0 +1,24 @@
+<div class="main">
+	<div class="row">
+		<div class="col-sm-10">
+			<h1 class="title">These are your Orders!</h1>
+		</div>
+	</div>
+	<div class="container">
+			
+		<p><%= link_to "Return to Home Page", root_path %></p>
+
+		<p>Displaying Order details...</p>
+		<p><%= @orders.length %></p>
+		<% @orders.each do |order| %>
+			<p>Order ID: <%= order.id %></p>
+			<p>Order price: <%= order.totalPrice %>€</p>
+			<p>Order status: <%= order.status %></p>
+		
+			
+
+	
+		<% end %>
+
+	</div>
+</div>

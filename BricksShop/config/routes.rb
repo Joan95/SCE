@@ -27,7 +27,9 @@ Rails.application.routes.draw do
 	get '/orderPayment', to: 'cart#orderPayment'
 
 	# Order actions #
-	get '/order/:id', to: 'orders#showOrder'
+	get '/showOrder/:id', to: 'orders#showOrder'
 	get '/listOrders', to: 'orders#listOrders'
 	get '/emptyOrder', to: 'orders#emptyOrder'
+	get '/cancelOrder/:id', to: 'orders#cancelOrder'
+	get '/listCancelledOrders', to: 'orders#listCancelledOrders'
 end

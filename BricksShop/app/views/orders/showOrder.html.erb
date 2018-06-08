@@ -7,19 +7,36 @@
 	<div class="container">
 			
 		<p><%= link_to "Return to Home Page", root_path %></p>
+		<p><%= link_to "See your active Orders", listOrders_path %></p>
 
 		<p>Displaying Order details...</p>
-
-		<p>Order ID: <%= @order.id %></p>
-		<p>Order price: <%= @totalPrice %>€</p>
-		<p>Order status: <%= @order.status %></p>
-		<p>Amount of products ordered <%= @orderProducts.length %></p>
 		
-		<% @orderProducts.each do |order| %>
-			<p><%= image_tag Item.find(order.items_id).image %></p>
-			<p><%= Item.find(order.items_id).name%> - <%= Item.find(order.items_id).price%></p>
+		<table>
+			<tr>
+				<td>Order ID: </td>
+				<td><%= @order.id %></td>
+			</tr>
+			<tr>
+				<td>Order price: </td>
+				<td><%= @totalPrice %>€</td>
+			</tr>
+			<tr>
+				<td>Order status: </td>
+				<td><%= @order.status %></td>
+			</tr>
+			<tr>
+				<td>Amount of products ordered: <%= @orderProducts.length %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<% @orderProducts.each do |order| %>
+					<td><%= image_tag Item.find(order.items_id).image %></td>
+					<td><%= Item.find(order.items_id).name%> - <%= Item.find(order.items_id).price%>€</td>
 			
-		<% end %>
+				<% end %>
+			</tr>
+		</table>
 
 	</div>
 </div>

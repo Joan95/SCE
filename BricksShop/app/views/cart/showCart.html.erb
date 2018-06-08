@@ -16,7 +16,7 @@
 			<p>Position: <%= n%></p>
 			<p> <%= image_tag Item.find(id).image %> </p>
 			<p> Product: <%= Item.find(id).name %>; Id: <%= Item.find(id).id %>; Price: <%= Item.find(id).price %>€ </p>
-			<p> <%= link_to "Remove item from my Cart", {:controller => "cart", :action => :removeItem, :position => n }, {:method => :delete} %> </p>
+			<p> <%= button_to "Remove item from my Cart", {:controller => "cart", :action => :removeItem, :position => n }, {:method => :delete} %> </p>
 		<% end %>
 
 <% else %>

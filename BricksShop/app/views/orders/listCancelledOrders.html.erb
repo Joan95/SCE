@@ -1,13 +1,13 @@
 <div class="main">
 	<div class="row">
 		<div class="col-sm-10">
-			<h1 class="title">These are your active Orders!</h1>
+			<h1 class="title">These are your cancelled Orders :(</h1>
 		</div>
 	</div>
 	<div class="container">
 			
 		<p><%= link_to "Return to Home Page", root_path %></p>
-		<p><%= link_to "See your cancelled Orders", listCancelledOrders_path %></p>
+		<p><%= link_to "See your active orders", listOrders_path %></p>
 
 		<p><h3>Displaying information of <%= @orders.length %> orders</h3></p>
 		
@@ -43,7 +43,6 @@
 				</tbody>
 			</table>
 			<%= button_to "Show Order details", { :controller => "orders", :action => "showOrder", id: order.id }, { :method => :get }%>
-			<%= button_to "Cancel Order", { :controller => "orders", :action => "cancelOrder", id: order.id }, { :method => :get }%>
 		<% end %>
 	</div>
 </div>

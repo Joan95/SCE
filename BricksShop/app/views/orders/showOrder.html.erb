@@ -61,7 +61,7 @@
 				<div class = "Item item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:500px">		
 					<%= image_tag Item.find(order.items_id).image, :class => "item" %>
 					<div class="container2" style="height:40%;">
-						<p style="margin-top:25%"><%= Item.find(order.items_id).name %> - <%= Item.find(order.items_id).price%>€</p>
+						<h3 style="margin-top:25%"><%= Item.find(order.items_id).name %> - <%= Item.find(order.items_id).price%>€</h3>
 					</div>
 				</div>
 			<% end %>

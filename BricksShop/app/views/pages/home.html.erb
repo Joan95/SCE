@@ -53,7 +53,16 @@
 		</div>
 	</div>
 
-	<!-- Items list -->
+	<!-- PayPal -->
+	<!-- <% @response.each do |r| %>
+		<div>
+			<p> <%= r["id"] %> </p>
+			<p> <%= r["title"] %> </p>
+			<p> <%= r["body"] %> </p>
+		</div>
+	<% end %> -->
+	
+	<!-- Render Items list -->
 	<div class="container">					
 		<%= render "layouts/defaultList", locals: {items: @itemsDefaultList} %>	
 	</div>	

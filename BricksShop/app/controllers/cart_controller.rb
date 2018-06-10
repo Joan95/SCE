@@ -27,4 +27,42 @@ class CartController < ApplicationController
 			redirect_to controller: "orders", action: "emptyOrder"
 		end
 	end
+
+	before_action :setPayPalToken, :only => [:createpayment, :executepayment]
+
+	def setPayPalToken
+		@paypaltoken = 'A21AAFIiqPqnbi_z_qVIzCnUXZOAFzW-QCNzQlE_-aGybylKmX2NlZk4T3-UIBJguqVRMLY_OpoFyIyjk4Ec5lOv-MEWsLW2w'
+	end 
+
+	def createpayment
+		
+
+		@response = HTTParty.post('https://api.sandbox.paypal.com/v1/payments/payment', 
+			:headers => { 
+				'Content-Type' => 'application/json',
+				'Authorization' => "Bearer #{@paypaltoken}"}, 
+			:body => { 
+				:intent => 'sale', 
+				:redirect_urls => {
+					'return_url' => 'https://example.com','cancel_url' => 'https://example.com'},
+		 	:payer => {
+				'payment_method' => 'paypal'}, 
+			:transactions => [{
+				'amount' => {
+					'total' => '0.5',
+					'currency' => 'EUR'}}]
+			}.to_json, :debug_output => Rails.logger)
+		 render json: {
+		 	paymentID: "#{@response["id"]}"
+		 }.to_json
+	end 
+
+	def executepayment
+		@response = HTTParty.post("https://api.sandbox.paypal.com/v1/payments/payment/#{params[:paymentID]}/execute/", 
+			:headers => { 
+				'Content-Type' => 'application/json', 'Authorization' => "Bearer #{@paypaltoken}"}, 
+			:body => { 
+				:payer_id => "#{params[:payerID]}"
+			}.to_json, :debug_output => Rails.logger)
+ 	end
 end

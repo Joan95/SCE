@@ -32,4 +32,8 @@ Rails.application.routes.draw do
 	get '/emptyOrder', to: 'orders#emptyOrder'
 	get '/cancelOrder/:id', to: 'orders#cancelOrder'
 	get '/listCancelledOrders', to: 'orders#listCancelledOrders'
+
+	# PayPal actions #
+	post '/createpayment', to: 'cart#createpayment'
+	post '/executepayment', to: 'cart#executepayment'
 end

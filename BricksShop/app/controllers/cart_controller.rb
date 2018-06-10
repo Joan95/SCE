@@ -15,6 +15,10 @@ class CartController < ApplicationController
 		redirect_back fallback_location: root_path
 	end
 
+	def showCart
+		@totalPrice = session[:products].map{|id| Item.find(id).price}.reduce(:+)
+	end
+
 	def orderPayment
 		if (session[:products].length > 0)
 			order = Order.create(user_id: current_user.id, totalPrice: session[:products].map{|id| Item.find(id).price}.reduce(:+), status: "Ordered")
@@ -35,7 +39,6 @@ class CartController < ApplicationController
 	end 
 
 	def createpayment
-		
 
 		@response = HTTParty.post('https://api.sandbox.paypal.com/v1/payments/payment', 
 			:headers => { 
@@ -49,7 +52,7 @@ class CartController < ApplicationController
 				'payment_method' => 'paypal'}, 
 			:transactions => [{
 				'amount' => {
-					'total' => '0.5',
+					'total' => "#{@totalPrice}",
 					'currency' => 'EUR'}}]
 			}.to_json, :debug_output => Rails.logger)
 		 render json: {

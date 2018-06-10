@@ -5,7 +5,7 @@
 		<p><%= link_to "Return to Home Page", root_path %></p>
 		<% if user_signed_in? %>
 
-			<h2 style="margin-bottom:2%"><p>Price to Pay: <%= session[:products].map{|id| Item.find(id).price}.reduce(:+) %>€</p></h2>
+			<h2 style="margin-bottom:2%"><p>Price to Pay: <%= @totalPrice %>€</p></h2>
 
 			<%= button_to( "Order Cart", {:controller => "cart", action: "orderPayment" }, {:method => :get, :class => "btn btn-success", :style => "margin-bottom:2%"} )%>
 

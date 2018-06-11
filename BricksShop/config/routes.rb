@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 	post '/addItem/:id', to: 'cart#addItem'
 	delete '/removeItem/:position', to: 'cart#removeItem'
 	delete '/emptyCart', to: 'cart#emptyCart'
-	get '/orderPayment', to: 'cart#orderPayment'
 
 	# Order actions #
+	get '/orderPayment', to: 'orders#orderPayment'
 	get '/showOrder/:id', to: 'orders#showOrder'
 	get '/listOrders', to: 'orders#listOrders'
 	get '/emptyOrder', to: 'orders#emptyOrder'
@@ -34,6 +34,6 @@ Rails.application.routes.draw do
 	get '/listCancelledOrders', to: 'orders#listCancelledOrders'
 
 	# PayPal actions #
-	post '/createpayment', to: 'cart#createpayment'
-	post '/executepayment', to: 'cart#executepayment'
+	post '/createpayment', to: 'orders#createpayment'
+	post '/executepayment', to: 'orders#executepayment'
 end

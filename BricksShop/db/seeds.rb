@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#---------->User Administrator<----------#
+administrator = User.create(email: "admin@admin.com", first_name: "Administrator", last_name: "Administrator", address: "c/Administrator", mobile: "123123123", isAdmin: true, password: "administrator")
+
+#---------->Users<----------#
+user1 = User.create(email: "rails@rails.com", first_name: "Ruby", last_name: "On Rails", address: "c/RubyOnRails 5", mobile: "666 666 666", isAdmin: false, password: "rubyonrails")
+
+user2 = User.create(email: "ruby@ruby.com", first_name: "Rails", last_name: "On Ruby", address: "c/RubyOnRails 5", mobile: "666 666 662", isAdmin: false, password: "rubyonrails")
 
 #---------->Pieces<----------#
 piece1 = Item.create(name: "Connecting Bush", price: 0.06, image: "https://sh-s7-live-s.legocdn.com/is/image/LEGOPCS/6013938?$PABthumb$", description: "Connecting Bush", category: "piece")

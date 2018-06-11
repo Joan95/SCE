@@ -1,7 +1,19 @@
 <% if user_signed_in? %>
-	<p>Welcome <%= current_user.first_name %>! <%= link_to "See my Profile", { :controller => "users", :action => :showUser }, { :method => :get } %> </p>
-	<p><%= link_to "See my Orders", { :controller => "orders", :action => :listOrders }, { :method => :get } %> </p>
+	<% if not current_user.isAdmin %>
+
+		<p>Welcome <%= current_user.first_name %>! <%= link_to "See my Profile", { :controller => "users", :action => :showUser }, { :method => :get } %> </p>
+		<p><%= link_to "See my Orders", { :controller => "orders", :action => :listOrders }, { :method => :get } %> </p>
+		
+	<% else %>
+				
+		<p>Current roll: ADMINISTRATOR</p>
+		<p><%= link_to "See all Orders", { :controller => "orders", :action => :listAllOrders }, { :method => :get } %> </p>
+		<p><%= link_to "See all Users", { :controller => "users", :action => :listAllUsers}, { :method => :get } %></p>
+		
+	<% end %> 
+
 	<%= link_to 'Logged in [click to logout]', destroy_user_session_path, :method => :delete %>
+
 <% else %>
 	<p>You are not signed in.</p>
 	<%= link_to 'Login', new_user_session_path %>

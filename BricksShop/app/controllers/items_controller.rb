@@ -1,7 +1,25 @@
 class ItemsController < ApplicationController
+	
+	def index
+		@items = Item.all
+	end 
+
 	def defaultList
 		@itemsDefaultList = Item.defaultList()
+	end
+
+	def newItem
+		@item = Item.new
 	end 
+
+	def createItem
+		@item = Item.new(items_params)
+		if @item.save
+			redirect_to '/items'
+		else 
+			redirect_to('/items/newItem')
+		end
+	end
 
 	def listPacks
 		@itemsPacks = Item.listPacks()
@@ -50,4 +68,9 @@ class ItemsController < ApplicationController
 	def showItem
 		@item = Item.find(params[:id])
 	end
+
+	private 
+		def items_params
+			params.require(:item).permit(:name, :price, :image, :description, :category)
+		end
 end

@@ -1,0 +1,43 @@
+<div class="main">
+	<div class="container">
+
+		<% if current_user.isAdmin %>
+			<h1>Profile of User: <%= @user.id %></h1>
+			<p><%= link_to "Return to Home Page", root_path %></p>
+			<p><%= link_to "See user Orders", { :controller => "orders", :action => "listUserOrders", id: @user.id }, { :method => :get } %></p>
+			<p><%= link_to "List all users", listAllUsers_path %></p>
+			<p><%= link_to "List all orders", listAllOrders_path %></p>
+			<div>
+
+				<table>
+					<tr>
+						<td><p>User First Name</p></td>
+						<td><p><%= @user.first_name %></p></td>
+					</tr>
+					<tr>
+						<td><p>User Last Name</p></td>
+						<td><p><%= @user.last_name %></p></td>
+					</tr>	
+					<tr>
+						<td><p>User Email:</p></td>
+						<td><p><%= @user.email %></p></td>
+					</tr>	
+					<tr>
+						<td><p>User Address:</p></td>
+						<td><p><%= @user.address %></p></td>
+					</tr>	
+					<tr>
+						<td><p>User Mobile Phone:</p></td>
+						<td><p><%= @user.mobile %></p></td>
+					</tr>
+				</table>
+
+			</div>
+
+		<% else %> 
+
+			<p>Sorry you are not allowed to see this kind of information.</p>
+
+		<% end %>
+	</div>
+</div>

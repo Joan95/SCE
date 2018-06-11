@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20180607095748) do
     t.string "last_name"
     t.string "address"
     t.string "mobile"
+    t.boolean "isAdmin", default: false, null: false
     t.integer "orders_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["orders_id"], name: "index_users_on_orders_id"

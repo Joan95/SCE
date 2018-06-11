@@ -1,0 +1,28 @@
+<div class="item">
+	<p><%= link_to "Return to Home Page", root_path %></p>
+	<%= form_for(@item) do |f| %>
+		<div class="field">
+ 			<p> <%= f.label :name %></p>
+ 			<%= f.text_field :name %>
+ 		</div>
+ 		<div class="field">
+ 			<p><%= f.label :price %></p>
+ 			<%= f.text_field :price %>
+ 		</div>
+ 		<div class="field">
+ 			<%= f.label :image%><br>
+ 			<%= f.text_field :image %>
+ 		</div>
+ 		<div class="field">
+ 			<%= f.label :description %><br>
+ 			<%= f.text_area :description %>
+ 		</div>
+ 		<div class="field">
+ 			<%= f.label :category %><br />
+ 			<%= f.text_field :category %>
+ 		</div>
+ 		<div class="actions">
+ 			<%= f.submit "Create" %>
+ 		</div>
+ 	<% end %>
+</div>

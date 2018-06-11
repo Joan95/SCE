@@ -8,9 +8,23 @@ class OrdersController < ApplicationController
 		$totalPrice = @order.totalPrice
 		$orderToPay = @order
 	end
+	
+	def getOrderDetails
+		@order = Order.find(params[:id])
+		@orderProducts = @order.order_products
+	end
+
+	def listUserOrders
+		@ordersUser = Order.where("user_id LIKE ?", params[:id])
+		@user = User.find(params[:id])
+	end
 
 	def listOrders
 		@orders = Order.where("user_id LIKE ? AND status not LIKE 'Cancelled'", current_user.id)
+	end
+	
+	def listAllOrders
+		@allOrders = Order.all
 	end
 
 	def emptyOrder

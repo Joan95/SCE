@@ -1,5 +1,7 @@
 class CartController < ApplicationController
 
+	$totalPrice
+
 	def addItem
 		(session[:products] ||= []) << params[:id]
 		redirect_back fallback_location: root_path
@@ -16,7 +18,7 @@ class CartController < ApplicationController
 	end
 
 	def showCart
-		@totalPrice = session[:products].map{|id| Item.find(id).price}.reduce(:+)
+		$totalPrice = session[:products].map{|id| Item.find(id).price}.reduce(:+)
 	end
 
 	def orderPayment
@@ -35,11 +37,11 @@ class CartController < ApplicationController
 	before_action :setPayPalToken, :only => [:createpayment, :executepayment]
 
 	def setPayPalToken
-		@paypaltoken = 'A21AAFIiqPqnbi_z_qVIzCnUXZOAFzW-QCNzQlE_-aGybylKmX2NlZk4T3-UIBJguqVRMLY_OpoFyIyjk4Ec5lOv-MEWsLW2w'
+		@paypaltoken = 'A21AAHvRGOWhNNmhY2dKNVYxGUUOzNN1x919Fwv8Qa4XP311dIktaMt5zvHDQPxQ8mzGBMhYn973NRpTmM5WS-XHNjD0KU9yg'
 	end 
 
 	def createpayment
-
+		totalPrice = $totalPrice.round(2)
 		@response = HTTParty.post('https://api.sandbox.paypal.com/v1/payments/payment', 
 			:headers => { 
 				'Content-Type' => 'application/json',
@@ -50,11 +52,9 @@ class CartController < ApplicationController
 					'return_url' => 'https://example.com','cancel_url' => 'https://example.com'},
 		 	:payer => {
 				'payment_method' => 'paypal'}, 
-			:transactions => [{
-				'amount' => {
-					'total' => "#{@totalPrice}",
-					'currency' => 'EUR'}}]
-			}.to_json, :debug_output => Rails.logger)
+			:transactions => [{'amount' => {'total' => "#{totalPrice}",
+                                                                 'currency' => 'EUR'}}]
+                      }.to_json, :debug_output => Rails.logger)
 		 render json: {
 		 	paymentID: "#{@response["id"]}"
 		 }.to_json

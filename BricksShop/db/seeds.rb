@@ -14,6 +14,11 @@ user1 = User.create(email: "rails@rails.com", first_name: "Ruby", last_name: "On
 
 user2 = User.create(email: "ruby@ruby.com", first_name: "Rails", last_name: "On Ruby", address: "c/RubyOnRails 5", mobile: "666 666 662", isAdmin: false, password: "rubyonrails")
 
+user3 = User.create(email: "rails2@rails.com", first_name: "Ruby2", last_name: "On Rails2", address: "c/RubyOnRails 52", mobile: "666 666 662", isAdmin: false, password: "rubyonrails")
+
+user4 = User.create(email: "ruby2@ruby2.com", first_name: "Rails2", last_name: "On Ruby2", address: "c/RubyOnRails 52", mobile: "666 666 662", isAdmin: false, password: "rubyonrails")
+
+
 #---------->Pieces<----------#
 piece1 = Item.create(name: "Connecting Bush", price: 0.06, image: "https://sh-s7-live-s.legocdn.com/is/image/LEGOPCS/6013938?$PABthumb$", description: "Connecting Bush", category: "piece")
 
@@ -117,5 +122,33 @@ buildings = Item.create(name: "Building's pack", price: 629.964, image: "https:/
 
 dc = Item.create(name: "DC's pack", price: 555, image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/DC_Comics_logo.png", description: "This is the pack of DC, become a superhero or a true villan!", category: "pack")
 
-#---------->Items<----------#
+
+#---------->Orders<----------#
+order1 = Order.create(user_id: user1.id, totalPrice: 5, status: "Paid")
+order2 = Order.create(user_id: user1.id, totalPrice: 5, status: "Ordered")
+order3 = Order.create(user_id: user1.id, totalPrice: 5, status: "Cancelled")
+
+OrderProduct.create(order_id: order1.id, items_id: batmanRocket.id)
+OrderProduct.create(order_id: order2.id, items_id: batmanRocket.id)
+OrderProduct.create(order_id: order3.id, items_id: batmanRocket.id)
+
+
+
+order11 = Order.create(user_id: user2.id, totalPrice: 5, status: "Paid")
+order21 = Order.create(user_id: user2.id, totalPrice: 5, status: "Ordered")
+order31 = Order.create(user_id: user2.id, totalPrice: 5, status: "Cancelled")
+
+OrderProduct.create(order_id: order11.id, items_id: batmanRocket.id)
+OrderProduct.create(order_id: order21.id, items_id: batmanRocket.id)
+OrderProduct.create(order_id: order31.id, items_id: batmanRocket.id)
+
+
+
+order12 = Order.create(user_id: user3.id, totalPrice: 5, status: "Paid")
+order22 = Order.create(user_id: user3.id, totalPrice: 5, status: "Ordered")
+order32 = Order.create(user_id: user3.id, totalPrice: 5, status: "Cancelled")
+
+OrderProduct.create(order_id: order12.id, items_id: batmanRocket.id)
+OrderProduct.create(order_id: order22.id, items_id: batmanRocket.id)
+OrderProduct.create(order_id: order32.id, items_id: batmanRocket.id)
 

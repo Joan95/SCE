@@ -1,30 +1,23 @@
 <div class="main">
 	<div class="container">
-		<% if user_signed_in? %>
-			<% @itemsDefaultList.each do |item| %>
-				<div class = "Toy item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:600px">
-					<%= image_tag(item.image, :class => "item") %>
-					<div class="container2">
-						<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
-						<p class="item"> Description: <%= item.description %> </p>
-						<p class="item"> Category: <%= item.category %> </p>
-						<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post, :class => "btn btn-success", :style => "position: absolute; bottom:5%;left:35%"} %>
-					</div>
-				</div>
-			<% end %>
-		<% else %> 
 
-			<% @itemsDefaultList.each do |item| %>									
-				<div class = "Toy item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:550px">
-					<%= image_tag(item.image, :class => "item" )%>
-					<div class="container2">
-						<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
-						<p class="item"> Description: <%= item.description %> </p>
-						<p class="item"> Category: <%= item.category %> </p>		
-					</div>
-				</div>								
-			<% end %>	
-	
-		<% end %>	
+		<% @itemsDefaultList.each do |item| %>
+			<div class = "Toy item polaroid col-sm-2" style="margin-left: 10px; margin-right: 10px; height:600px">
+				<%= image_tag(item.image, :class => "item") %>
+				<div class="container2">
+					<h3 class="item"> <%= item.name %> - <%= item.price %>€ </h3>
+					<p class="item"> Description: <%= item.description %> </p>
+					<p class="item"> Category: <%= item.category %> </p>
+				
+					<% if user_signed_in? %>						
+						<%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post, :class => "btn btn-success", :style => "position: absolute; bottom:5%;left:35%"} %>
+						
+						<% if current_user.isAdmin %>
+							<p><%= button_to "Edit Item", { :controller => "items", :action => :editItem, :id => item.id }, { :method => :get } %></p>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
 	</div>
 </div>

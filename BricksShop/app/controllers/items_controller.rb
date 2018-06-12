@@ -21,6 +21,15 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def editItem
+		@item = Item.find(params[:id])
+	end
+
+	def modifyItem
+		@item = Item.find(params[:id]).update(items_params)
+		redirect_to root_path
+	end
+
 	def listPacks
 		@itemsPacks = Item.listPacks()
 	end

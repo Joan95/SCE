@@ -56,7 +56,9 @@
 
 	<!-- If user is Administrator -->
 	<% if user_signed_in? && current_user.isAdmin %>
-		<p><%= button_to "New Item", { :controller => "items", :action => "newItem" },{ :method => :get }%></p>
+		<p><%= button_to "New Item", { :controller => "items", :action => "newItem" }, { :method => :get }%></p>
+
+		<p><%= button_to "List all Items", { :controller => "items", :action => "index" }, { :method => :get }%></p>
 	<% end %>
 	
 	<!-- Render Items list -->

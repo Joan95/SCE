@@ -1,13 +1,13 @@
 <div class="item">
 	<% if user_signed_in? && current_user.isAdmin %>
-		<%= form_for(@item) do |f| %>
+		<%= form_for(@item, :url => { :action => "modifyItem", :id => @item.id }, html: { method: :put }) do |f| %>
 			<div class="field">
 	 			<p> <%= f.label :name %></p>
-	 			<%= f.text_field :name %>
+	 			<%= f.text_field :name, autocomplete: "name"%>
 	 		</div>
 	 		<div class="field">
 	 			<p><%= f.label :price %></p>
-	 			<%= f.text_field :price %>
+	 			<%= f.text_field :price, autocomplete: "price" %>
 	 		</div>
 	 		<div class="field">
 	 			<%= f.label :image%><br>
@@ -22,7 +22,7 @@
 	 			<%= f.text_field :category %>
 	 		</div>
 	 		<div class="actions">
-	 			<%= f.submit "Create" %>
+	 			<%= f.submit "Edit" %>
 	 		</div>
 	 	<% end %>
 	<% else %>

@@ -45,7 +45,10 @@
 				</table>
 				<%= button_to "Show User details", { :controller => "users", :action => "seeUser", id: order.user.id }, { :method => :get, :class => "btn btn-primary", :style => "margin-top:2%" }%>
 				<%= button_to "Show Order details", { :controller => "orders", :action => "getOrderDetails", id: order.id }, { :method => :get, :class => "btn btn-primary", :style => "margin-top:2%" }%>
-				<%= button_to "Cancel Order", { :controller => "orders", :action => "cancelOrder", id: order.id }, { :method => :get, :class => "btn btn-danger", :style => "margin-top:2%" }%>
+				
+				<% if order.status != "Cancelled" %>
+					<%= button_to "Cancel Order", { :controller => "orders", :action => "cancelOrder", id: order.id }, { :method => :get, :class => "btn btn-danger", :style => "margin-top:2%" }%>
+				<% end %>
 			<% end %>
 		</div>
 	<% else %>

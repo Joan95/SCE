@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 	get '/items', to: 'items#index'
 	get '/newItem', to: 'items#newItem'
 	post '/items', to: 'items#createItem'
+	get '/editItem/:id', to: 'items#editItem'
+	put '/modifyItem/:id', to: 'items#modifyItem'	
+
 	get '/defaultList', to: 'items#defaultList'	
 	get '/searchItem', to: 'items#searchItem'
 	get '/searchPack', to: 'items#searchPack'

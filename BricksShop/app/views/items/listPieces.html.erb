@@ -37,7 +37,7 @@
 						<% if user_signed_in? %>
 							<p><%= link_to "Add to Cart", {:controller => "cart", :action => :addItem, :id => item.id }, {:method => :post, :class => "btn btn-success", :style => "position: absolute;bottom:5%;left:35%"} %></p>
 							<% if current_user.isAdmin %>
-								<p><%= button_to "Edit Item" %></p>
+								<p><%= button_to "Edit Item", { :controller => "items", :action => :editItem, :id => item.id }, { :method => :get } %></p>
 							<% end %>
 						<% end %>
 					</div>

@@ -27,7 +27,13 @@ class ItemsController < ApplicationController
 
 	def modifyItem
 		@item = Item.find(params[:id]).update(items_params)
-		redirect_to root_path
+		redirect_back fallback_location: root_path
+	end
+
+	def deleteItem
+		@item = Item.find(params[:id])
+		@item.delete		
+		redirect_back fallback_location: root_path
 	end
 
 	def listPacks

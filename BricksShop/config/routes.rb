@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 	get '/newItem', to: 'items#newItem'
 	post '/items', to: 'items#createItem'
 	get '/editItem/:id', to: 'items#editItem'
-	put '/modifyItem/:id', to: 'items#modifyItem'	
+	put '/modifyItem/:id', to: 'items#modifyItem'
+	delete '/deleteItem/:id', to: 'items#deleteItem'
 
 	get '/defaultList', to: 'items#defaultList'	
 	get '/searchItem', to: 'items#searchItem'

@@ -89,6 +89,6 @@ class OrdersController < ApplicationController
 
 		orderToPay = $orderToPay
 		Order.find(orderToPay.id).update(:status => "Paid")
-		redirect_back fallback_location: listOrders_path
+		redirect_to controller: "orders", action: "listOrders"
  	end
 end

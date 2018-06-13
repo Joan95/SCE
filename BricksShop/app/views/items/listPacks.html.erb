@@ -6,7 +6,13 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-9">
+			<% if user_signed_in? %>
+				<p><b style="text-align:right"> Current elements in your <%= link_to "cart", {:controller => "cart", :action => :showCart }, {:method => :get} %>: </b> <%= session[:products].length%></p>		
+			<% end %>
 		</div>
+
+		
+
 		<div style="margin-right:0px; align:right">
 			<%= form_tag(searchPack_path, :controller => "items", :action => :searchPack, :method => :get) do %>
 				<div class="col-xs-2">

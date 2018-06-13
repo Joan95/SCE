@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
 	before_action :setPayPalToken, :only => [:createpayment, :executepayment]
 
 	def setPayPalToken
-		@paypaltoken = 'A21AAHvRGOWhNNmhY2dKNVYxGUUOzNN1x919Fwv8Qa4XP311dIktaMt5zvHDQPxQ8mzGBMhYn973NRpTmM5WS-XHNjD0KU9yg'
+		@paypaltoken = 'A21AAEFo3vYimrKJ3Z93XzP5C0jswqxpEZt_aTNGBqybj2byhWqZyZEnBvUhaYNSMIFRilq0ZOwnlnzwXrEMINKOpfsdkj7Kg'
 	end 
 
 	def createpayment
